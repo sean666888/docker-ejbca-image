@@ -48,7 +48,7 @@ ADD files /
 # Configure image
 RUN set -xe \
   && chmod a+x /*.sh \
-  && chown -hR wildfly:wildfly /opt/ejbca /opt/jboss/wildfly
+  && chown -hR jboss /opt/ejbca /opt/jboss/wildfly
 
 # Configure environment variables
 ENV IMAGE_NAME ejbca
