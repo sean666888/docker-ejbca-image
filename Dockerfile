@@ -1,7 +1,7 @@
 #
 # Dockerfile for EJBCA server container
 #
-FROM njmittet/alpine-wildfly:10.1.0.Final
+FROM sean666888/alpine-wildfly
 MAINTAINER DataKnight Solutions Development Team <devteam@dataknight.co>
 
 ARG MARIADB_JAVA_CLIENT_VERSION=2.2.0
