@@ -7,15 +7,15 @@ version: "3"
 services:
   ejbca:
     build: .
-    image: dataknightllc/ejbca:latest
+    image: sean666888/ejbca:latest
 
     container_name: ejbca
     volumes:
-      - W:\tmp\secrets:/run/secrets
-      - W:\tmp\ejbca:/var/lib/ejbca
+      - /tmp/secrets:/run/secrets
+      - /tmp/ejbca:/var/lib/ejbca
     environment:
       TZ: ${TZ:-UTC}
-      
+
       MYSQL_CONNECTION_URL: mysql://mariadb:3306/ejbca
       MYSQL_USERNAME: ejbca
       MYSQL_USERNAME_SECRET: /run/secrets/ejbca.mysql_username
@@ -23,7 +23,7 @@ services:
       MYSQL_PASSWORD_SECRET: /run/secrets/ejbca.mysql_password
 
       WILDFLY_SERVER_CN: ejbca
-      WILDFLY_SERVER_ALT_NAMES: 
+      WILDFLY_SERVER_ALT_NAMES:
       #WILDFLY_STOREPASS_SECRET: /run/secrets/ejbca.wildfly_storepass
       #WILDFLY_TRUSTSTOREPASS_SECRET: /run/secrets/ejbca.wildfly_truststorepass
 
@@ -59,10 +59,10 @@ services:
 
   mariadb:
     container_name: mariadb
-    image: dataknightllc/mariadb:stable
+    image: mariadb
     volumes:
-      - W:\tmp\mysql:/var/lib/mysql
-      - W:\tmp\secrets:/run/secrets
+      - /tmp/mysql:/var/lib/mysql
+      - /tmp/secrets:/run/secrets
     ports:
       - 3306:3306
     environment:
@@ -75,9 +75,9 @@ services:
 
   httpd:
     container_name: httpd
-    image: dataknightllc/apache-http:stable
+    image: httpd
     volumes:
-      - W:\tmp\httpd:/etc/apache2/conf.d
+      - /tmp/httpd:/etc/apache2/conf.d
     ports:
       - 8080:80
       - 4443:443

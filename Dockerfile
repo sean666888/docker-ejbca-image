@@ -1,14 +1,14 @@
 #
 # Dockerfile for EJBCA server container
 #
-FROM dataknightllc/wildfly:stable
+FROM njmittet/alpine-wildfly:10.1.0.Final
 MAINTAINER DataKnight Solutions Development Team <devteam@dataknight.co>
 
-ARG MARIADB_JAVA_CLIENT_VERSION=2.0.1
+ARG MARIADB_JAVA_CLIENT_VERSION=2.2.0
 ARG MARIADB_DOWNLOAD_URL=https://downloads.mariadb.com/Connectors/java/connector-java-${MARIADB_JAVA_CLIENT_VERSION}
 ARG EJBCA_CE_VERSION=6.10.1.2
 ARG EJBCA_CE_FILE_URI=ejbca6/ejbca_6_10_0/ejbca_ce_6_10_1_2.zip
-ARG EJBCA_CE_FOLDER=ejbca_ce_6_5.0.5
+ARG EJBCA_CE_FOLDER=ejbca_ce_6_10_1_2
 
 # Install packages
 RUN set -xe \
