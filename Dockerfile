@@ -49,7 +49,6 @@ ADD files /
 RUN set -xe \
   && chmod a+x /*.sh \
   && chown -hR jboss /opt/ejbca /opt/jboss/wildfly
-
 # Configure environment variables
 ENV IMAGE_NAME ejbca
 
@@ -57,4 +56,4 @@ ENV IMAGE_NAME ejbca
 EXPOSE 8080 8442 8443
 
 # Configure default command
-CMD [ "run" ]
+CMD RUN
