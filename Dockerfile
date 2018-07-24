@@ -9,7 +9,7 @@ ARG MARIADB_DOWNLOAD_URL=https://downloads.mariadb.com/Connectors/java/connector
 ARG EJBCA_CE_VERSION=6.10.1.2
 ARG EJBCA_CE_FILE_URI=ejbca6/ejbca_6_10_0/ejbca_ce_6_10_1_2.zip
 ARG EJBCA_CE_FOLDER=ejbca_ce_6_10_1_2
-
+USER root
 # Install packages
 RUN set -xe \
   && apk update \
